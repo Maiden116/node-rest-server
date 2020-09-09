@@ -19,4 +19,4 @@ process.env.SEED = process.env.SEED || 'este/es/el/site/desarrollo';
 //Database URl
 process.env.URLDB = urlDB;
 //////GLOGLE CLIENT ID
-process.env.GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID || '550531852393-nn2oj72lk9evjq1st0vcnf1g94u7ufo6.apps.googleusercontent.com';
+process.env.GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID || '550531852393-nfp9v02eo4dbodegsedp6jikvjeim17v.apps.googleusercontent.com';
