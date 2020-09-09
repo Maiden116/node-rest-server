@@ -2,6 +2,7 @@ require('./config/config')
 const express = require('express')
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser')
+const path = require('path');
 
 
 "mongodb+srv://maiden116:<password>@cluster0.cfizo.mongodb.net/test"
@@ -13,7 +14,8 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
     //User Routes//
 app.use(require('./router'));;
-app.get('/', function(req, res) {})
+//Enable folder public
+app.use(express.static(path.resolve(__dirname, '../public')));
 
 connectToDb = async() => {
     try {

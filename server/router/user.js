@@ -66,3 +66,6 @@ app.delete('/user/:id', [verifyToken, verifyRole], (req, res) => {
 })
 
 module.exports = app
+
+// SECRET
+// iiHqx55XBQlK6l2HaqRhi6t1
