@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
     // parse application/json
 app.use(bodyParser.json())
     //User Routes//
-app.use(require('./router/user'))
+app.use(require('./router'));;
 app.get('/', function(req, res) {})
 
 connectToDb = async() => {

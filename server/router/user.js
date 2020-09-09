@@ -1,8 +1,10 @@
 const express = require('express')
 const app = express()
 const { saveUser, updateUser, getUserList, deleteUser } = require('./../controller/userController')
+const { verifyToken, verifyRole } = require('../middlewares/auth')
 
-app.get('/user', (req, res) => {
+app.get('/user', verifyToken, (req, res) => {
+
     getUserList(req).then(results => {
         res.json({
             code: 200,
@@ -17,7 +19,7 @@ app.get('/user', (req, res) => {
     })
 })
 
-app.post('/user', (req, res) => {
+app.post('/user', [verifyToken, verifyRole], (req, res) => {
     saveUser(req).then((result) => {
         res.status(201).send({
             user: result
@@ -31,7 +33,7 @@ app.post('/user', (req, res) => {
     });
 })
 
-app.put('/user/:id', (req, res) => {
+app.put('/user/:id', [verifyToken, verifyRole], (req, res) => {
     updateUser(req).then(result => {
         res.status(200).send({
             user: result
@@ -45,7 +47,7 @@ app.put('/user/:id', (req, res) => {
     })
 })
 
-app.delete('/user/:id', (req, res) => {
+app.delete('/user/:id', [verifyToken, verifyRole], (req, res) => {
     deleteUser(req).then((result) => {
 
         res.status(200).json({

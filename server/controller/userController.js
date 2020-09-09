@@ -1,7 +1,6 @@
 const User = require('../models/user');
 const bcrypt = require('bcrypt');
 const _ = require('underscore');
-const { off } = require('../router/user');
 
 
 saveUser = async(req) => {
@@ -81,5 +80,6 @@ module.exports = {
     saveUser,
     updateUser,
     getUserList,
-    deleteUser
+    deleteUser,
+    User,
 }
