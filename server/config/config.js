@@ -13,7 +13,7 @@ if (process.env.NODE_ENV === 'dev') {
     urlDB = process.env.MONGO_URI;
 }
 //Expire Token//
-process.env.EXPIRED_TIME = 60 * 60 * 24 * 30;
+process.env.EXPIRED_TIME = '48h';
 //Seed//
 process.env.SEED = process.env.SEED || 'este/es/el/site/desarrollo';
 //Database URl
