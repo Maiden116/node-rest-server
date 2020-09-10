@@ -3,7 +3,24 @@ const jwt = require('jsonwebtoken');
 //AUTH METHOD//
 //VERIFY TOKEN//
 let verifyToken = (req, res, next) => {
-    let token = req.get('X-Token');
+    let token = req.get('X-Token') || req.query.token;
+
+    jwt.verify(token, process.env.SEED, (err, decoded) => {
+        if (err) {
+            return res.status(401).json({
+                code: 401,
+                err
+            })
+        }
+        req.user = decoded.user;
+        next();
+    });
+};
+
+//VERIFY TOKEN Para Imagen//
+let verifyTokenImage = (req, res, next) => {
+    let token = req.query.token;
+
     jwt.verify(token, process.env.SEED, (err, decoded) => {
         if (err) {
             return res.status(401).json({
@@ -30,5 +47,6 @@ let verifyRole = (req, res, next) => {
 
 module.exports = {
     verifyToken,
-    verifyRole
+    verifyRole,
+    verifyTokenImage
 }

@@ -8,4 +8,8 @@ app.use(require('./login'));
 app.use(require('./category'));
 //ProductRoutes
 app.use(require('./product'));
+//Upload
+app.use(require('./upload'));
+//Images
+app.use(require('./images'));
 module.exports = app;
